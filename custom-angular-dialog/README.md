@@ -41,14 +41,14 @@ Then in your app should look something like this:
 
 ```
 
-####<dialog-header>,<dialog-body>
+#### `<dialog-header>` ,`<dialog-body>`
 
   Both are optional and each can be used alone.
 
   Any HTML tags including `<img>`, `<input>`, etc... can be included inside <dialog-body>
 
 
-####Input parameters `[width]` and `[height]`.
+#### Input parameters `[width]` and `[height]`.
 
   Both are optional parameters and is defaulted to `20% both` of whole dialog.
 
