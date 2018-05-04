@@ -13,6 +13,7 @@ Import `DialogModule` into your AppModule so that your app knows how to render `
 ```
   import { DialogModule } from 'custom-angular-dialog';
 ...
+
 ```
 ```
 imports:[
@@ -40,14 +41,14 @@ Then in your app should look something like this:
 
 ```
 
-###<dialog-header>,<dialog-body>
+####<dialog-header>,<dialog-body>
 
   Both are optional and each can be used alone.
 
   Any HTML tags including `<img>`, `<input>`, etc... can be included inside <dialog-body>
 
 
-###Input parameters `[width]` and `[height]`.
+####Input parameters `[width]` and `[height]`.
 
   Both are optional parameters and is defaulted to `20% both` of whole dialog.
 
@@ -59,7 +60,5 @@ Parameter `[headerColor]`
 
   It can be used to set the color of Default header and the color can be in names, or RGB, HEX, HSL, RGBA, HSLA values.
 
-```
 ![Low frame gif](./DialogDemo.gif)
 
-```
