@@ -1,0 +1,7 @@
+<button (click)="showDialog = !showDialog" class="btn">Open</button>
+<app-dialog [(visible)]="showDialog">
+  <dialog-header>Hello World</dialog-header>
+  <div>
+    <button (click)="showDialog = !showDialog" class="btn">Close</button>
+  </div>
+</app-dialog>

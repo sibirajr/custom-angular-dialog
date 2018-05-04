@@ -1,0 +1,15 @@
+<div *ngIf="visible" class="dialog" [style.height.%]="height" [style.width.%]="width">
+  <div [style.background-color]="headerColor" class="dialog-header">
+    <span class="text-header">
+      <ng-content select="dialog-header"></ng-content>
+    </span>
+    <div *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">
+      <span aria-hidden="true">&times;</span>
+    </div>
+  </div>
+  <div class="dialog-body">
+    <ng-content select="dialog-body"></ng-content>
+  </div>
+  <ng-content></ng-content> <!-- universal -->
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
