@@ -24,14 +24,14 @@ DialogModule,
 ]
 
 ```
-Then in your app should look something like this:
+Then your app should look something like this:
 ```
 
 <button (click)="showDialog = !showDialog">Open</button>
 <label>Your Fav : {{tDialog}}</label>
 <!-- dialog content -->
 
-<app-dialog [(visible)]="showDialog" [width]="20" [height]="20" [headerColor]="#34a0e7">
+<app-dialog [(visible)]="showDialog" [width]="20" [height]="20" [headerColor]="'#34a0e7'">
 <dialog-header>Alert !</dialog-header> 
 <dialog-body>
   <input placeholder="Trending Dialog ?" [(ngModel)]="tDialog" type="text" />
