@@ -1,7 +1,24 @@
 {
   "name": "custom-angular-dialog",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "license": "MIT",
+  "author": {
+    "name": "sibiraj rajendran",
+    "email": "r.sibiraj.007@gmail.com"
+  },
+  "keywords": [
+    "dialog",
+    "angular",
+    "typescript",
+    "popup"
+  ],
+  "bugs": {
+    "url": "https://github.com/sibirajr/custom-angular-dialog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sibirajr/custom-angular-dialog/tree/master/custom-angular-dialog"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,8 +28,8 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json"
   },
-  "private": true,
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -24,9 +41,8 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
-  },
-  "devDependencies": {
+    "zone.js": "^0.8.19",
+
     "@angular/cli": "~1.7.1",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
