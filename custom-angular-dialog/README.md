@@ -59,5 +59,3 @@ Parameter `[headerColor]`
 Color is defaulted to `34a0e7`.
 
 It can be used to set the color of Default header and the color can be in names, or RGB, HEX, HSL, RGBA, HSLA values.
-
-![Low frame gif](./DialogDemo.gif)
