@@ -1,5 +1,7 @@
-<div *ngIf="visible" class="dialog" [style.height.%]="height" [style.width.%]="width">
-  <div [style.background-color]="headerColor" class="dialog-header">
+<div [hidden]="!visible" id="dialog-container" class="dialog" [style.height.%]="height" [style.width.%]="width" [style.left.%]="left"
+  [style.top.%]="top">
+  <div [style.background-color]="headerColor" class="dialog-header" (mousedown)="mousedown($event)" (mousemove)="mousemove($event)"
+    (mouseup)="mouseup($event)">
     <span class="text-header">
       <ng-content select="dialog-header"></ng-content>
     </span>
@@ -10,6 +12,8 @@
   <div class="dialog-body">
     <ng-content select="dialog-body"></ng-content>
   </div>
-  <ng-content></ng-content> <!-- universal -->
+  <ng-content></ng-content>
+  <!-- universal -->
+  <div class="resizeIcon">&#9950;</div>
 </div>
 <div *ngIf="visible" class="overlay" (click)="close()"></div>
