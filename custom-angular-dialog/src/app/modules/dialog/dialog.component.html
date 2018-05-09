@@ -1,5 +1,5 @@
-<div [hidden]="!visible" id="dialog-container" class="dialog" [style.height.%]="height" [style.width.%]="width" [style.left.%]="left"
-  [style.top.%]="top">
+<div *ngIf="visible" id="dialog-container{{overlapDialog}}" class="dialog" [style.height.%]="height" [style.width.%]="width"
+  [style.left.%]="left" [style.top.%]="top">
   <div [style.background-color]="headerColor" class="dialog-header" (mousedown)="mousedown($event)" (mousemove)="mousemove($event)"
     (mouseup)="mouseup($event)">
     <span class="text-header">

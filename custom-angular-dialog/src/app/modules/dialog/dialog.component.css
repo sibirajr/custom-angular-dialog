@@ -51,7 +51,7 @@
   cursor: e-resize;
 }
 
-div#dialog-container:after {
+.dialog:after {
   content: "";
   resize: horizontal;
   bottom: 0;

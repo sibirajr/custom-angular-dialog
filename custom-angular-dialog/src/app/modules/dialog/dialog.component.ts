@@ -3,8 +3,9 @@ import {
   OnInit,
   Input,
   Output,
+  EventEmitter,
   OnChanges,
-  EventEmitter
+  SimpleChanges
 } from "@angular/core";
 
 @Component({
@@ -12,13 +13,14 @@ import {
   templateUrl: "./dialog.component.html",
   styleUrls: ["./dialog.component.css"]
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent implements OnInit, OnChanges {
   private mousePosition: PIXI;
   private dragOffset;
   private isDown;
   private dialogBoxDiv;
   public left;
   public top;
+  public overlapDialog;
 
   @Input() closable = true;
   @Input() visible: boolean;
@@ -34,9 +36,15 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dialogBoxDiv = document.getElementById("dialog-container");
     this.left = 50 - this.width / 2;
     this.top = 50 - this.height / 2;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["visible"]) {
+      nested.count = nested.count + 1;
+      this.overlapDialog = nested.count;
+    }
   }
 
   close() {
@@ -45,6 +53,9 @@ export class DialogComponent implements OnInit {
   }
 
   mousedown($event) {
+    this.dialogBoxDiv = document.getElementById(
+      "dialog-container" + this.overlapDialog
+    );
     this.isDown = true;
     this.dragOffset = [
       this.dialogBoxDiv.offsetLeft - $event.clientX,
@@ -64,7 +75,6 @@ export class DialogComponent implements OnInit {
         x: $event.clientX,
         y: $event.clientY
       };
-
       this.dialogBoxDiv.style.left =
         this.mousePosition.x + this.dragOffset[0] + "px";
       this.dialogBoxDiv.style.top =
@@ -77,3 +87,7 @@ class PIXI {
   x: number;
   y: number;
 }
+
+const nested = {
+  count: 0
+};
