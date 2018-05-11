@@ -1,4 +1,4 @@
-.overlay {
+.overlay_notanchored {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -8,7 +8,18 @@
   z-index: 999;
 }
 
-.dialog {
+.overlay_anchored {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: not-allowed;
+}
+
+.dialog_resize {
   z-index: 1040;
   position: fixed;
   margin-right: auto;
@@ -21,6 +32,17 @@
     0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
 }
 
+.dialog_noresize {
+  z-index: 1040;
+  position: fixed;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+
 .dialog__close-btn {
   font-size: 35px;
   cursor: pointer;
@@ -28,11 +50,17 @@
   position: absolute;
 }
 
-.dialog-header {
+.dialog-header_draggable {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   height: 40px;
   cursor: move;
+}
+
+.dialog-header_nondraggable {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 40px;
 }
 
 .text-header {
@@ -51,7 +79,7 @@
   cursor: e-resize;
 }
 
-.dialog:after {
+.dialog_resize:after {
   content: "";
   resize: horizontal;
   bottom: 0;

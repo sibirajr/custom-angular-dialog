@@ -27,6 +27,9 @@ export class DialogComponent implements OnInit, OnChanges {
   @Input() width = 25;
   @Input() height = 25;
   @Input() headerColor = "#34a0e7";
+  @Input() resizable: boolean = true;
+  @Input() draggable: boolean = false;
+  @Input() anchored: boolean = false;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {
@@ -53,32 +56,38 @@ export class DialogComponent implements OnInit, OnChanges {
   }
 
   mousedown($event) {
-    this.dialogBoxDiv = document.getElementById(
-      "dialog-container" + this.overlapDialog
-    );
-    this.isDown = true;
-    this.dragOffset = [
-      this.dialogBoxDiv.offsetLeft - $event.clientX,
-      this.dialogBoxDiv.offsetTop - $event.clientY
-    ];
+    if (this.draggable) {
+      this.dialogBoxDiv = document.getElementById(
+        "dialog-container" + this.overlapDialog
+      );
+      this.isDown = true;
+      this.dragOffset = [
+        this.dialogBoxDiv.offsetLeft - $event.clientX,
+        this.dialogBoxDiv.offsetTop - $event.clientY
+      ];
+    }
   }
 
   mouseup($event) {
-    this.isDown = false;
+    if (this.draggable) {
+      this.isDown = false;
+    }
   }
 
   mousemove($event) {
-    $event.preventDefault();
+    if (this.draggable) {
+      $event.preventDefault();
 
-    if (this.isDown) {
-      this.mousePosition = {
-        x: $event.clientX,
-        y: $event.clientY
-      };
-      this.dialogBoxDiv.style.left =
-        this.mousePosition.x + this.dragOffset[0] + "px";
-      this.dialogBoxDiv.style.top =
-        this.mousePosition.y + this.dragOffset[1] + "px";
+      if (this.isDown) {
+        this.mousePosition = {
+          x: $event.clientX,
+          y: $event.clientY
+        };
+        this.dialogBoxDiv.style.left =
+          this.mousePosition.x + this.dragOffset[0] + "px";
+        this.dialogBoxDiv.style.top =
+          this.mousePosition.y + this.dragOffset[1] + "px";
+      }
     }
   }
 }

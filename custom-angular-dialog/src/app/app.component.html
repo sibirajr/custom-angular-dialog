@@ -1,12 +1,13 @@
 <button (click)="showDialog = !showDialog" class="btn">Open</button>
-<app-dialog [width]="40" [height]="70" [headerColor]="'#ccc'" [(visible)]="showDialog">
-  <dialog-header>Hello World</dialog-header>
+<app-dialog [width]="70" [height]="70" [headerColor]="'#f06292'" [(visible)]="showDialog">
+  <dialog-header>Resizable-Non-Anchored</dialog-header>
   <div>
     <button (click)="showDialog = !showDialog" class="btn">Close</button>
   </div>
   <button (click)="showDialogw = !showDialogw" class="btn">Open</button>
-  <app-dialog [width]="20" [height]="20" [headerColor]="'blue'" [(visible)]="showDialogw">
-    <dialog-header>nested</dialog-header>
+  <app-dialog [width]="20" [height]="20" [headerColor]="'#009688'" [closable]=false [draggable]=true [anchored]=true [resizable]=false
+    [(visible)]="showDialogw">
+    <dialog-header>Nested-Dragable</dialog-header>
     <div>
       <button (click)="showDialogw = !showDialogw" class="btn">Close</button>
     </div>

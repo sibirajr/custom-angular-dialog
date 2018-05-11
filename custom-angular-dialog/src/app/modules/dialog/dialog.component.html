@@ -1,7 +1,7 @@
-<div *ngIf="visible" id="dialog-container{{overlapDialog}}" class="dialog" [style.height.%]="height" [style.width.%]="width"
-  [style.left.%]="left" [style.top.%]="top">
-  <div [style.background-color]="headerColor" class="dialog-header" (mousedown)="mousedown($event)" (mousemove)="mousemove($event)"
-    (mouseup)="mouseup($event)">
+<div *ngIf="visible" id="dialog-container{{overlapDialog}}" [ngClass]="{'dialog_resize': resizable, 'dialog_noresize': !resizable}"
+  [style.height.%]="height" [style.width.%]="width" [style.left.%]="left" [style.top.%]="top">
+  <div [style.background-color]="headerColor" [ngClass]="{'dialog-header_draggable': draggable, 'dialog-header_nondraggable': !draggable}"
+    (mousedown)="mousedown($event)" (mousemove)="mousemove($event)" (mouseup)="mouseup($event)">
     <span class="text-header">
       <ng-content select="dialog-header"></ng-content>
     </span>
@@ -14,6 +14,7 @@
   </div>
   <ng-content></ng-content>
   <!-- universal -->
-  <div class="resizeIcon">&#9950;</div>
+  <div *ngIf="resizable" class="resizeIcon">&#9950;</div>
 </div>
-<div *ngIf="visible" class="overlay" (click)="close()"></div>
+<div *ngIf="visible && !anchored" class="overlay_notanchored" (click)="close()"></div>
+<div *ngIf="visible && anchored" class="overlay_anchored"></div>
