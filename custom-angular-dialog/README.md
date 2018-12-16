@@ -1,6 +1,6 @@
 ## custom-angular-dialog
 
-This is a simple, easy, small library for creating dynamic dialogs with angular. This can be easily handled by using a `boolean` with customizable header and body content.
+This is a simple, easy, small, most customizable library for creating dynamic dialogs with angular. This can be easily handled by using a `boolean` with customizable header and body content.
 
 #### Installation
 
@@ -80,7 +80,4 @@ It can be used to set the color of Default header and the color can be in names,
 
 `[resizable]` - Dialog can be resized by dragging right corner of the dialog.Defaulted to `true`.
 
-All above parameters are optional.Nested dilog is supported on and above 3.0.0 version.
-
-Live Demo.
-``
+All above parameters are optional.Nested and multiple dialog is supported on and above 3.0.0 version.
